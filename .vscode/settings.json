@@ -1,0 +1,48 @@
+{
+  // eslint extension options
+  "eslint.enable": true,
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  // ensures that vscode uses the version installed within the project.
+  "typescript.tsdk": "node_modules/typescript/lib",
+  // supress eslint warnings for tailwind related directives
+  "css.customData": [".vscode/tailwind.json"],
+  // prettier extension setting
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.rulers": [80],
+  "editor.codeActionsOnSave": [
+    "source.addMissingImports",
+    "source.fixAll",
+    "source.organizeImports"
+  ],
+  // Show in vscode "Problems" tab when there are errors
+  "typescript.tsserver.experimental.enableProjectDiagnostics": true,
+  // Use absolute import for typescript files
+  "typescript.preferences.importModuleSpecifier": "non-relative"
+  //  Intellisense for taiwind variants: https://www.tailwind-variants.org/docs/getting-started#intellisense-setup-optional
+  // (uncomment when needed)
+  // "tailwindCSS.experimental.classRegex": [
+  //   ["tv\\((([^()]*|\\([^()]*\\))*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  // ]
+}

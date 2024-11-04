@@ -34,7 +34,6 @@ components
 - Use the `*.test.tsx` or `*.test.ts` naming convention.
 - Use the `*.spec.tsx` or `*.spec.ts` naming convention for integration tests.
 - Use the `*.e2e.tsx` or `*.e2e.ts` naming convention for end-to-end tests.
-- Use the `*.mock.ts` naming convention for mock files.
 
 ### Naming Conventions
 

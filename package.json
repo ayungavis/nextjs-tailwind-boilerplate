@@ -1,26 +1,61 @@
 {
-  "name": "nextjs-tailwind-boilerplate",
-  "version": "0.1.0",
-  "private": true,
+  "name": "${REPO_NAME}#",
+  "version": "0.0.0",
+  "description": "${DESC}#",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/#{USER_OR_ORG}#/#{REPO_NAME}#.git"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint .",
+    "format:fix": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "type-check": "tsc --noEmit"
   },
+  "author": "u/#{USER_OR_ORG}#",
+  "license": "MIT",
+  "keywords": [],
+  "homepage": "https://github.com/#{USER_OR_ORG}#/#{REPO_NAME}#",
   "dependencies": {
     "react": "19.0.0-rc-02c0e824-20241028",
     "react-dom": "19.0.0-rc-02c0e824-20241028",
     "next": "15.0.2"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/compat": "^1.2.2",
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.13.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.0.1",
+    "@types/eslint__eslintrc": "^2.1.2",
+    "@types/eslint__js": "^8.42.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@vitejs/plugin-react": "^4.3.3",
+    "eslint": "^9.13.0",
+    "eslint-config-next": "^15.0.2",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "jsdom": "^25.0.1",
     "postcss": "^8",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.8",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "15.0.2"
-  }
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.12.2",
+    "vitest": "^2.1.4"
+  },
+  "overrides": {
+    "eslint": "$eslint"
+  },
+  "packageManager": "bun@1.0.0"
 }

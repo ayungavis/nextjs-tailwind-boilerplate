@@ -1,0 +1,10 @@
+# Dependencies
+node_modules
+
+# Build / outputs
+dist
+build
+
+# Compiler
+.yarn_home
+.bun_home

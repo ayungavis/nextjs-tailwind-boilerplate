@@ -1,0 +1,31 @@
+name: ci
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test_lint:
+    runs-on: ubuntu-latest
+    if: ${{ !github.event.created && github.repository != 'ayungavis/nextjs-tailwind-boilerplate' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install
+        uses: ./.github/actions/install
+      - name: Run 'bun run lint` and `bun run format:fix` if this fails
+        run: |
+          bun run lint
+          bun run format:check
+
+  test:
+    runs-on: ubuntu-latest
+    needs: test_lint
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install
+        uses: ./.github/actions/install
+      - run: bun run build
+      - run: bun run test

@@ -1,0 +1,34 @@
+name: Install
+description: Install dependencies with caching
+inputs:
+  bun-version:
+    description: 'Bun version to install'
+    required: false
+    default: 'latest'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup Bun
+      uses: oven-sh/setup-bun@v2
+      with:
+        bun-version: ${{ inputs.bun-version }}
+    - name: Restore cached bun dependencies
+      id: cache-dependencies-restore
+      uses: actions/cache/restore@v4
+      with:
+        path: |
+          node_modules
+          ~/.cache/Cypress # needed for Cypress binary
+        key: ${{ runner.os }}-bun-${{ hashFiles('bun.lockb') }}
+    - name: Install dependencies
+      shell: bash
+      run: bun install --frozen-lockfile
+    - name: Cache bun dependencies
+      id: cache-dependencies-save
+      uses: actions/cache/save@v4
+      with:
+        path: |
+          node_modules
+          ~/.cache/Cypress # needed for Cypress binary
+        key: ${{ steps.cache-dependencies-restore.outputs.cache-primary-key }}

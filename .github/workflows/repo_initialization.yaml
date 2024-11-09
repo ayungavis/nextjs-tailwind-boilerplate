@@ -32,8 +32,10 @@ jobs:
           USER_OR_ORG: ${{ github.repository_owner }}
           DESC: ${{ github.event.repository.description }}
           REPO_NAME_NO_DASHES: ${{ steps.replace_placeholders.outputs.replace_result }}
-      - name: Remove this workflow, it only needs to be run once
-        run: rm .github/workflows/repo_initialization.yaml
+      - name: Remove this workflow and dependabot, it only needs to be run once
+        run: |
+          rm .github/workflows/repo_initialization.yaml
+          rm .github/dependabot.yaml
       - name: Commit files
         run: |
           git config --local user.email "ayungavis@gmail.com"

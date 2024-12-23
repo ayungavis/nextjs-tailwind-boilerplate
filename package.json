@@ -22,7 +22,7 @@
   "keywords": [],
   "homepage": "https://github.com/#{USER_OR_ORG}#/#{REPO_NAME}#",
   "dependencies": {
-    "react": "19.0.0-rc-02c0e824-20241028",
+    "react": "19.0.0",
     "react-dom": "19.0.0-rc-02c0e824-20241028",
     "next": "15.1.2"
   },

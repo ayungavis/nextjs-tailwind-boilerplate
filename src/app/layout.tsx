@@ -1,6 +1,9 @@
-import "@/styles/globals.scss";
+import '@/styles/globals.scss';
 
 import type { Metadata, Viewport } from 'next';
+import type { CSSProperties } from 'react';
+
+import { inter } from '@/fonts';
 
 export const viewport: Viewport = {
   themeColor: '#000000',
@@ -29,7 +32,14 @@ const RootLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      style={
+        {
+          '--font-inter': inter.style.fontFamily,
+        } as CSSProperties
+      }
+    >
       <body>{children}</body>
     </html>
   );

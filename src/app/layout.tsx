@@ -1,7 +1,8 @@
-import '@/styles/globals.scss';
+import '@/styles/globals.css';
 
 import type { Metadata, Viewport } from 'next';
-import type { CSSProperties } from 'react';
+import { ThemeProvider } from 'next-themes';
+import type { CSSProperties, ReactNode } from 'react';
 
 import { inter } from '@/fonts';
 
@@ -29,10 +30,11 @@ export const metadata: Metadata = {
 const RootLayout = ({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) => {
   return (
     <html
+      suppressHydrationWarning
       lang="en"
       style={
         {
@@ -40,7 +42,9 @@ const RootLayout = ({
         } as CSSProperties
       }
     >
-      <body>{children}</body>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 };

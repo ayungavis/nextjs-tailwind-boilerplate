@@ -13,8 +13,8 @@
     "lint": "next lint",
     "format:fix": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "vitest",
-    "test:watch": "vitest --watch",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
     "type-check": "tsc --noEmit"
   },
   "author": "u/#{USER_OR_ORG}#",
@@ -33,6 +33,7 @@
     "@eslint/js": "^9.13.0",
     "@tailwindcss/postcss": "^4.1.4",
     "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.0.1",
     "@types/eslint__eslintrc": "^2.1.2",
     "@types/eslint__js": "^8.42.3",

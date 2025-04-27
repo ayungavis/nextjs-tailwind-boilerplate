@@ -2,6 +2,7 @@ import { fixupConfigRules } from '@eslint/compat';
 import { FlatCompat } from '@eslint/eslintrc';
 import eslint from '@eslint/js';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import unicorn from 'eslint-plugin-unicorn';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import tseslint from 'typescript-eslint';
@@ -26,6 +27,7 @@ export default tseslint.config(
     files: ['**/*.ts', '**/*.tsx'],
     plugins: {
       'simple-import-sort': simpleImportSort,
+      unicorn: unicorn,
     },
     extends: [
       ...patchedConfig,
@@ -38,6 +40,22 @@ export default tseslint.config(
       sourceType: 'module',
     },
     rules: {
+      'unicorn/filename-case': [
+        'error',
+        {
+          case: 'kebabCase',
+          ignore: [],
+        },
+      ],
+      'max-params': ['error', 3], // Limit the number of parameters in a function to use object instead
+      'max-lines-per-function': [
+        'error',
+        {
+          max: 100,
+          skipBlankLines: true,
+          skipComments: true,
+        },
+      ],
       '@typescript-eslint/no-unused-vars': [
         'error',
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },

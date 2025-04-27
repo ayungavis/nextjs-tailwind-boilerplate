@@ -1,16 +1,16 @@
 name: ci
+
+# Cancel in-progress jobs if a new job is triggered
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 on:
-  push:
-    branches:
-      - main
   pull_request:
-    branches:
-      - main
 
 jobs:
   test_lint:
     runs-on: ubuntu-latest
-    if: ${{ !github.event.created && github.repository != 'ayungavis/nextjs-tailwind-boilerplate' }}
     steps:
       - uses: actions/checkout@v4
       - name: Install

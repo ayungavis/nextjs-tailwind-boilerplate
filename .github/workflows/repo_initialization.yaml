@@ -42,7 +42,7 @@ jobs:
           git config --local user.name "NextJS Tailwind Boilerplate"
           git commit -am "Replacing placeholders"
       - name: Push changes (if fails, please read the readme and try again)
-        uses: ad-m/github-push-action@v0.8.0
+        uses: ad-m/github-push-action@v1.0.0
         with:
           github_token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
           branch: main

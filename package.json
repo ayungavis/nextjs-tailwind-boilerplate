@@ -1,7 +1,7 @@
 {
   "name": "#{REPO_NAME}#",
   "version": "0.0.0",
-  "description": "${DESC}#",
+  "description": "#{DESC}#",
   "repository": {
     "type": "git",
     "url": "git://github.com/#{USER_OR_ORG}#/#{REPO_NAME}#.git"

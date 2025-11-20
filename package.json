@@ -7,7 +7,6 @@
     "url": "git://github.com/#{USER_OR_ORG}#/#{REPO_NAME}#.git"
   },
   "scripts": {
-    "postinstall": "bun x lefthook install",
     "dev": "next --turbopack",
     "build": "next build",
     "start": "next start",

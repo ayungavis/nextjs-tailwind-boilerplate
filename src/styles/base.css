@@ -1,7 +1,7 @@
 @layer base {
   /* Theme colors */
-  @import './colors/light.css';
-  @import './colors/dark.css';
+  @import "./colors/light.css";
+  @import "./colors/dark.css";
 
   html {
     color: var(--foreground);
@@ -23,7 +23,9 @@
   body,
   #__next {
     height: calc(
-      100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom)
+      100vh -
+      env(safe-area-inset-top) -
+      env(safe-area-inset-bottom)
     );
   }
 }

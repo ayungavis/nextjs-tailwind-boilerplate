@@ -11,7 +11,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
@@ -20,14 +20,16 @@
     ],
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/test/vitest.setup.ts"
+    "src/test/vitest.setup.ts",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }

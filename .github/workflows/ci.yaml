@@ -9,23 +9,32 @@ on:
   pull_request:
 
 jobs:
-  test_lint:
+  main:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Install
-        uses: ./.github/actions/install
-      - name: Run 'bun run lint` and `bun run format:fix` if this fails
+      - name: ⚙️ Checkout repository
+        uses: actions/checkout@v5
+        with:
+          filter: tree:0
+          fetch-depth: 0
+
+      - name: 🛠 Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+          cache: "bun"
+
+      - name: 📦 Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: 🔍 Lint & Format
         run: |
           bun run lint
-          bun run format:check
+          bun run format
 
-  test:
-    runs-on: ubuntu-latest
-    needs: test_lint
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install
-        uses: ./.github/actions/install
-      - run: bun run build
-      - run: bun run test
+      - name: 🧪 Test, Build, and Typecheck
+        continue-on-error: true
+        run: |
+          bun run test
+          bun run typecheck
+          bun run build

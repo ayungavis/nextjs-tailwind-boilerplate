@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.created && github.repository != 'ayungavis/nextjs-tailwind-boilerplate' }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Replace README and LICESE
         run: |
           mv README.template.md README.md

@@ -7,7 +7,7 @@
     "url": "git://github.com/#{USER_OR_ORG}#/#{REPO_NAME}#.git"
   },
   "scripts": {
-    "dev": "next --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "bun x ultracite@latest check",

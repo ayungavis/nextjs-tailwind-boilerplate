@@ -10,8 +10,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "bun x ultracite@latest check",
-    "format": "bun x ultracite@latest fix",
+    "lint": "ultracite check",
+    "format": "ultracite fix",
     "test": "vitest run",
     "test:watch": "vitest watch",
     "typecheck": "tsc --noEmit",
@@ -45,7 +45,7 @@
     "sass-loader": "^16.0.4",
     "tailwindcss": "^4.1.17",
     "typescript": "^5.9.3",
-    "ultracite": "6.4.0",
+    "ultracite": "^6.4.1",
     "vitest": "^4.0.10"
   },
   "packageManager": "bun@1.3.2"
